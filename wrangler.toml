@@ -11,3 +11,6 @@ run_worker_first = ["/api/*"]
 binding = "DB"
 database_name = "my-auth-db"
 database_id = "799d078e-972b-4775-8023-20984fa2fbde"
+
+[[send_email]]
+name = "EMAIL"
