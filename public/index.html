@@ -168,14 +168,14 @@
     const btn = e.target.querySelector('button');
     btn.disabled = true;
     try {
-      await api('/api/register', {
-        method: 'POST',
-        body: JSON.stringify({
-          email: $('register-email').value,
-          password: $('register-password').value,
-        }),
-      });
-      showMsg('register-message', 'Аккаунт создан. Теперь войди.', 'success');
+      const data = await api('/api/register', {
+  method: 'POST',
+  body: JSON.stringify({
+    email: $('register-email').value,
+    password: $('register-password').value,
+  }),
+});
+showMsg('register-message', data.message || 'Аккаунт создан. Проверь почту.', 'success');
       setTimeout(() => {
         $('login-email').value = $('register-email').value;
         show('login-view');
@@ -215,6 +215,26 @@
     try { await api('/api/logout', { method: 'POST', body: '{}' }); } catch (_) {}
     show('login-view');
   });
+  // ... выше идут все остальные функции и обработчики ...
+
+  async function bootstrap() {
+    const params = new URLSearchParams(location.search);
+    if (params.get('verified') === '1') {
+      show('login-view');
+      showMsg('login-message', 'Email подтверждён! Теперь можешь войти.', 'success');
+      history.replaceState({}, '', '/');
+    }
+
+    try {
+      const { user } = await api('/api/me');
+      if (user) {
+        $('dashboard-email').textContent = user.email;
+        show('dashboard-view');
+        return;
+      }
+    } catch (_) { /* не авторизован — это нормально */ }
+    show('login-view');
+  }
 
   bootstrap();
 })();
