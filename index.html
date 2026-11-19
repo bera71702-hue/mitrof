@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>С. Митрофанов &amp; К. Ведерников — Неофициальная энциклопедия</title>
+<meta name="description" content="Полностью вымышленная энциклопедия двух легендарных людей. Ничего из написанного здесь не является правдой.">
+<style>
+  :root{
+    --bg:#12100e; --bg2:#1b1815; --card:#211d19; --line:#332c25;
+    --gold:#d9a441; --gold2:#f0c86e; --ink:#ece5da; --mut:#a99d8c;
+    --red:#c4553f;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:16px/1.65 Georgia,'Times New Roman',serif;
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(217,164,65,.07), transparent 45%),
+      radial-gradient(circle at 85% 30%, rgba(196,85,63,.06), transparent 45%);
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 18px}
+  header{
+    padding:64px 0 40px; text-align:center;
+    border-bottom:1px solid var(--line);
+  }
+  .stamp{
+    display:inline-block; border:1px solid var(--red); color:var(--red);
+    padding:6px 14px; border-radius:3px; font:700 12px/1.4 system-ui,sans-serif;
+    letter-spacing:.14em; text-transform:uppercase; transform:rotate(-2deg);
+  }
+  h1{
+    font-size:clamp(30px,6vw,52px); margin:26px 0 6px; line-height:1.1;
+    letter-spacing:.01em;
+  }
+  h1 span{color:var(--gold)}
+  .sub{color:var(--mut); font-style:italic; margin:0 0 24px}
+  .bar{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+  .btn{
+    background:transparent;color:var(--gold2);border:1px solid var(--gold);
+    padding:11px 20px;border-radius:4px;cursor:pointer;font:600 14px/1 system-ui,sans-serif;
+    text-decoration:none;transition:.2s;
+  }
+  .btn:hover{background:var(--gold);color:#14110e}
+  .btn.ghost{border-color:var(--line);color:var(--mut)}
+  .btn.ghost:hover{background:var(--card);color:var(--ink)}
+  section{padding:44px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:26px;margin:0 0 18px;color:var(--gold2)}
+  h3{margin:0 0 8px;color:var(--ink)}
+  .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:8px;padding:20px;
+    transition:.25s; cursor:pointer;
+  }
+  .card:hover{border-color:var(--gold);transform:translateY(-3px)}
+  .card .no{color:var(--gold);font:700 12px/1 system-ui,sans-serif;letter-spacing:.2em}
+  .card p{color:var(--mut);font-size:15px;margin:10px 0 0}
+  .meta{font:12px/1 system-ui,sans-serif;color:#6f6558;margin-top:12px}
+  .tl{list-style:none;padding:0;margin:0;border-left:2px solid var(--line)}
+  .tl li{position:relative;padding:0 0 26px 26px}
+  .tl li:before{
+    content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;
+    background:var(--gold);box-shadow:0 0 0 4px var(--bg);
+  }
+  .tl b{color:var(--gold2)}
+  .tl small{display:block;color:#6f6558;font-family:system-ui,sans-serif;font-size:12px}
+  .quote{
+    background:var(--bg2);border-left:3px solid var(--gold);padding:18px 20px;
+    margin:12px 0;border-radius:0 6px 6px 0;font-style:italic;
+  }
+  .quote footer{color:var(--mut);font-style:normal;font-size:13px;margin-top:8px}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+  .tab{padding:8px 16px;border:1px solid var(--line);border-radius:4px;background:transparent;
+    color:var(--mut);cursor:pointer;font:600 14px system-ui,sans-serif}
+  .tab.on{background:var(--gold);border-color:var(--gold);color:#14110e}
+  .pane{display:none} .pane.on{display:block;animation:fade .35s}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+  .acc{border:1px solid var(--line);border-radius:8px;margin-bottom:10px;overflow:hidden}
+  .acc h4{margin:0;padding:15px 18px;cursor:pointer;background:var(--card);font-size:17px;
+    display:flex;justify-content:space-between;align-items:center}
+  .acc h4 span{color:var(--gold);font-family:system-ui,sans-serif}
+  .acc .body{padding:0 18px;max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--mut)}
+  .acc.open .body{padding:18px}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line)}
+  th{color:var(--gold);font:600 13px system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+  .cnt{font:700 40px/1 system-ui,sans-serif;color:var(--gold)}
+  .live{display:flex;gap:20px;flex-wrap:wrap;align-items:center;
+    background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--red);display:inline-block;
+    margin-right:7px;animation:bl 1.4s infinite}
+  @keyframes bl{50%{opacity:.25}}
+  .note{
+    background:rgba(196,85,63,.09);border:1px solid var(--red);border-radius:6px;
+    padding:16px 18px;color:#e8c0b7;font-size:15px;
+  }
+  footer{padding:40px 0 60px;color:#6f6558;font-size:14px;text-align:center}
+  a{color:var(--gold2)}
+  .tape{
+    background:repeating-linear-gradient(45deg,#d9a441 0 12px,#14110e 12px 24px);
+    height:6px;margin:0
+  }
+  @media(max-width:520px){header{padding:44px 0 30px}}
+</style>
+</head>
+<body>
+<div class="tape"></div>
+
+<header>
+  <div class="wrap">
+    <span class="stamp">Полностью вымышленное издание</span>
+    <h1>Сергей Митрофанов<br><span>&amp;</span> Кости Ведерников</h1>
+    <p class="sub">Неофициальная энциклопедия. Материалы выдуманы от и до.</p>
+    <div class="bar">
+      <a class="btn" href="#bio">Биографии</a>
+      <a class="btn ghost" href="#facts">Рекорды</a>
+      <a class="btn ghost" href="#chrono">Хроника</a>
+      <a class="btn ghost" href="#works">Произведения</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section id="bio">
+  <h2>Два человека, одна легенда</h2>
+  <div class="grid">
+    <div class="card" onclick="quote1()">
+      <div class="no">ФИГУРА I</div>
+      <h3>Сергей Митрофанов</h3>
+      <p>Тот, кто придумал слово «дрофа», основал первую в мире школу экранизации в гараже
+         и трижды отверг предложение переехать в Голливуд.</p>
+      <div class="meta">клик — случайная цитата</div>
+    </div>
+    <div class="card" onclick="quote2()">
+      <div class="no">ФИГУРА II</div>
+      <h3>Кости Ведерников</h3>
+      <p>Тот, кто вложил в знакомство с финансовым махинатором все сбережения, ночевал
+         в подъезде, выиграл в лотерею и нашёл в этом philosophию.</p>
+      <div class="meta">клик — случайная цитата</div>
+    </div>
+  </div>
+  <div id="qbox" class="quote" style="margin-top:18px">Нажми на карточку слева — и случайная мысль одного из героев появится здесь.</div>
+</section>
+
+<section id="facts">
+  <h2>Рекорды, которых не было</h2>
+  <div class="tabs">
+    <button class="tab on" onclick="tab(0,this)">Все</button>
+    <button class="tab" onclick="tab(1,this)">Митрофанов</button>
+    <button class="tab" onclick="tab(2,this)">Ведерников</button>
+    <button class="tab" onclick="tab(3,this)">Вдвоём</button>
+  </div>
+  <div class="pane on" data-p="0">
+    <table>
+      <tr><th>Рекорд</th><th>Значение</th><th>Кто</th></tr>
+      <tr><td>Часов в сутки, проведённых за объяснением «надо же сначала понять»</td><td>19</td><td>Оба</td></tr>
+      <tr><td>Количество залов с «Дрофой» на стене</td><td>7</td><td>Митрофанов</td></tr>
+      <tr><td>Выигрыш в лотерею, вложенный в новое колесо</td><td>640 000 ₽</td><td>Ведерников</td></tr>
+      <tr><td>Совместных бизнес-идей, доведённых до конца</td><td>0</td><td>Оба</td></tr>
+      <tr><td>Раз</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+    </table>
+  </div>
+  <div class="pane" data-p="1">
+    <table>
+      <tr><th>Рекорд</th><th>Значение</th></tr>
+      <tr><td>Часов в сутки, проведённых за объяснением «надо же сначала понять»</td><td>19</td></tr>
+      <tr><td>Количество залов с «Дрофой» на стене</td><td>7</td></tr>
+      <tr><td>Идей, о которых он говорил «это не деньги, это эмоции»</td><td>∞</td></tr>
+    </table>
+  </div>
+  <div class="pane" data-p="2">
+    <table>
+      <tr><th>Рекорд</th><th>Значение</th></tr>
+      <tr><td>Выигрыш в лотерею, вложенный в новое колесо</td><td>640 000 ₽</td></tr>
+      <tr><td>Ночей в подъезде, проведённых ради спасения капитала</td><td>11</td></tr>
+      <tr><td>Различных версий слова «гарантия»</td><td>4</td></tr>
+    </table>
+  </div>
+  <div class="pane" data-p="3">
+    <table>
+      <tr><th>Рекорд</th><th>Значение</th></tr>
+      <tr><td>Совместных бизнес-идей, доведённых до конца</td><td>0</td></tr>
+      <tr><td>Часов в сутки, проведённых за объяснением «надо же сначала понять»</td><td>19</td></tr>
+      <tr><td>Обещаний, что «всё сложилось»</td><td>оба</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="chrono">
+  <h2>Хроника событий (источник: ниже)</h2>
+  <ul class="tl">
+    <li><b>Гараж на окраине</b><small>июнь</small>Появилась идея: снимать чужую жизнь и учить этому других. Идея была одобрена единственным человеком — тем, кто её придумал.</li>
+    <li><b>Первый зал</b><small>октябрь</small>Восемь человек, один проектор, ноль права на чтение чужих сценариев. С тех пор — «Дрофа».</li>
+    <li><b>Встреча с ВДКР</b><small>февраль</small>Кости Ведерников познакомился с человеком, обещавшим «удвоение за 48 часов». Фраза «абсолютно без риска» произнесена была именно тогда.</li>
+    <li><b>Ночёвка в подъезде</b><small>март</small>Расчётный счёт заморожен. Кости переехал в подъезд, чтобы лично контролировать «переоценку активов». Там он и познакомился с Сергеем — сначала случайно, потом судьбоносно.</li>
+    <li><b>Лотерея</b><small>август</small>640 тысяч. Новое колесо. Это колесо до сих пор где-то крутится.</li>
+    <li><b>Объединение</b><small>ноябрь</small>Совместный проект: издательство «Никаких гарантий». Первый тираж — 1 экземпляр. Разобран в тот же вечер.</li>
+  </ul>
+</section>
+
+<section id="works">
+  <h2>Произведения</h2>
+  <div class="acc" onclick="acc(this)">
+    <h4>«Школа гаражной экранизации» <span>+</span></h4>
+    <div class="body">Учебник о том, как снять чужую жизнь и не испортить её. 12 страниц, 4 из них — выдуманные. Остальные тоже выдуманные, но лучше.</div>
+  </div>
+  <div class="acc" onclick="acc(this)">
+    <h4>«Курс по выживанию в подъезде» <span>+</span></h4>
+    <div class="body">Практическое руководство для тех, кто вложил все деньги в слово «гарантия». Включает главу «что делать, если деньги не придут никогда».</div>
+  </div>
+  <div class="acc" onclick="acc(this)">
+    <h4>«48 часов» <span>+</span></h4>
+    <div class="body">Художественное произведение о человеке, который обещал удвоение. Читается как триллер, заканчивается как учебник фразеологии.</div>
+  </div>
+  <div class="acc" onclick="acc(this)">
+    <h4>«Новое колесо» <span>+</span></h4>
+    <div class="body">Поэма в 640 тысяч рублей. Читать вслух рекомендуется не более одного раза.</div>
+  </div>
+</section>
+
+<section>
+  <h2>Сейчас в энциклопедии</h2>
+  <div class="live">
+    <div><div class="cnt" id="cnt">4821</div><div class="meta">читателей, которые тоже не поверили</div></div>
+    <div><div class="dot"></div><span id="st">составляют хронику прямо сейчас</span></div>
+    <div style="margin-left:auto"><button class="btn ghost" onclick="bump()">обновить</button></div>
+  </div>
+</section>
+
+<section>
+  <div class="note">
+    <b>Дисклеймер.</b> Всё на этой странице — выдумка: имена, даты, суммы, цитаты, биографии
+    и рекорды. Ни один из упомянутых людей не имеет отношения к содержанию сайта.
+    Если вы узнали себя — напишите, и мы удалим страницу целиком, без вопросов.
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    Тираж: 1 экземпляр · Издательство «Никаких гарантий» · Москва, 2026<br>
+    Made with anxiety &amp; one remaining tire
+  </div>
+</footer>
+
+<script>
+const QS=[
+ '«Надо же сначала понять. Потом — снимать. Потом — продавать идею.»',
+ '«Гараж — это не помещение. Гараж — это позиция.»',
+ '«Я не гарантирую. Я обещаю. Разница — в одном слове, и это слово „я“.»',
+ '«Мы потеряли не деньги. Мы потеряли 640 тысяч и обрели сюжет.»',
+ '«Это не бизнес. Это сериал, который сам себя не показывает.»',
+ '«Если что-то идёт не так — значит, мы ещё не поняли, как это должно работать.»'
+];
+const QS2=[
+ '«Я взял кредит под честное слово. Честное слово оказалось дороже процентов.»',
+ '«Меня обманули? Нет. Меня вдохновили.»',
+ '«Новое колесо — это не расход. Это инвестиция в эмоции.»',
+ '«Подъезд — это временное жильё с постоянной арендой.»',
+ '«Он ушёл. Остались только обещания, у которых истекает срок годности.»'
+];
+function pick(a){return a[Math.floor(Math.random()*a.length)]}
+function quote1(){
+ document.getElementById('qbox').innerHTML=pick(QS)+'<footer>— С. Митрофанов, цитата придумана</footer>';
+}
+function quote2(){
+ document.getElementById('qbox').innerHTML=pick(QS2)+'<footer>— К. Ведерников, цитата придумана</footer>';
+}
+function tab(i,b){
+ document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+ b.classList.add('on');
+ document.querySelectorAll('.pane').forEach(p=>p.classList.remove('on'));
+ document.querySelector('.pane[data-p="'+i+'"]').classList.add('on');
+}
+function acc(h){
+ const a=h.parentElement;
+ const was=a.classList.contains('open');
+ document.querySelectorAll('.acc').forEach(x=>{
+   x.classList.remove('open');
+   x.querySelector('.body').style.maxHeight='0';
+   x.querySelector('span').textContent='+';
+ });
+ if(!was){
+   a.classList.add('open');
+   a.querySelector('.body').style.maxHeight=a.querySelector('.body').scrollHeight+'px';
+   a.querySelector('span').textContent='–';
+ }
+}
+let c=4821;
+function bump(){c+=Math.floor(Math.random()*37)+3;document.getElementById('cnt').textContent=c.toLocaleString('ru-RU');}
+setInterval(()=>{
+ const s=document.getElementById('st');
+ const t=['изучают подъезд','проверяют «новое колесо»','ведут хронику','перечитывают «48 часов»'];
+ s.textContent=t[Math.floor(Math.random()*t.length)]+' прямо сейчас';
+},3200);
+</script>
+</body>
+</html>
