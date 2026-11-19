@@ -1,0 +1,13 @@
+name = "my-auth-site"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "my-auth-db"
+database_id = "ВСТАВЬ_UUID_ИЗ_wrangler_d1_create"
