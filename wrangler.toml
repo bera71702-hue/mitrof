@@ -10,4 +10,4 @@ run_worker_first = ["/api/*"]
 [[d1_databases]]
 binding = "DB"
 database_name = "my-auth-db"
-database_id = "ВСТАВЬ_UUID_ИЗ_wrangler_d1_create"
+database_id = "799d078e-972b-4775-8023-20984fa2fbde"
